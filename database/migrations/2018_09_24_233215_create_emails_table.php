@@ -17,6 +17,9 @@ class CreateEmailsTable extends Migration
             $table->increments('id');
             $table->string('email',100)->unique();
 
+            $table->integer('position_id')->index()->unique()->unsigned()->nullable();
+            $table->foreign('position_id')->references('id')->on('positions');
+
             $table->integer('member_id')->index()->unique()->unsigned()->nullable();
             $table->foreign('member_id')->references('id')->on('members');
 

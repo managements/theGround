@@ -32,20 +32,19 @@
         </li>
         @auth
             <li class="dropdown">
-                <a href="#" class="dropdown-toggle user-link" data-toggle="dropdown" title="{{ $me->name }}">
+                <a href="#" class="dropdown-toggle user-link" data-toggle="dropdown" title="{{ $myInfo->name }}">
                     <span class="user-img">
                         <img class="img-circle" src="{{ asset('img/user.jpg') }}" width="40"
-                             alt="{{ $me->member->name }}">
+                             alt="{{ $myInfo->name }}">
                         <span class="status online"></span>
                     </span>
-                    <span>{{ $me->member->name }}</span>
+                    <span>{{ $myInfo->name }}</span>
                     <i class="caret"></i>
                 </a>
                 <ul class="dropdown-menu">
-                    @if(isset($myCompany))
-                        <li><a href="{{ route('profile',$myInfo) }}">My Profile</a></li>
-                        <li><a href="{{ route('params',$myInfo) }}">Params</a></li>
-                        <li><a href="#">{{ $myCompany->name }}</a></li>
+                    @if(isset($company))
+                        <li><a href="{{ route('profile', compact('company', 'myInfo')) }}">My Profile</a></li>
+                        <li><a href="{{ route('params', compact('company', 'myInfo')) }}">params</a></li>
                     @endif
                     <li>
                         <a href="{{ route('logout') }}"
@@ -70,8 +69,8 @@
                 class="fa fa-ellipsis-v"></i></a>
         <ul class="dropdown-menu pull-right">
             @auth
-                @if(isset($myCompany))
-                    <li><a href="#">{{ $myCompany->name }}</a></li>
+                @if(isset($company))
+                    <li><a href="#">{{ $company->name }}</a></li>
                 @endif
                 <li>
                     <a href="{{ route('logout') }}"

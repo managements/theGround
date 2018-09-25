@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Auth;
 use App\Email;
 use App\Member;
 use App\Premium;
+use App\Rules\PasswordRule;
+use App\Rules\TelRule;
 use App\Tel;
 use App\Token;
 use App\User;
@@ -109,12 +111,19 @@ class RegisterController extends Controller
         Email::create([
             'email'     => $data['email'],
             'member_id' => $member->id,
-            'comp'
         ]);
         Tel::create([
             'tel'       => $data['tel'],
             'member_id' => $member->id
         ]);
+        if($token->category_id == 1){
+            $premium_company = $token->company->premium;
+            $premium_company->update([
+                'status_id' => 2,
+                'range' => 0,
+                'limit' => gmdate('Y-m-d', strtotime("+$premium_company->range days"))
+            ]);
+        }
         $token->delete();
         return $user;
     }

@@ -22,19 +22,19 @@ class CreateMembersTable extends Migration
             $table->date('birth');
             $table->string('address',150)->nullable();
 
-            $table->integer('city_id')->index()->unique()->unsigned();
+            $table->integer('city_id')->index()->unsigned();
             $table->foreign('city_id')->references('id')->on('cities');
 
             $table->integer('premium_id')->index()->unique()->unsigned();
             $table->foreign('premium_id')->references('id')->on('premiums');
 
-            $table->integer('category_id')->index()->unique()->unsigned();
+            $table->integer('category_id')->index()->unsigned();
             $table->foreign('category_id')->references('id')->on('categories');
 
             $table->integer('user_id')->index()->unique()->unsigned();
             $table->foreign('user_id')->references('id')->on('users');
 
-            $table->integer('company_id')->index()->unique()->unsigned();
+            $table->integer('company_id')->index()->unsigned();
             $table->foreign('company_id')->references('id')->on('companies');
 
             $table->timestamps();

@@ -17,9 +17,9 @@ class CreateProductsTable extends Migration
             $table->increments('id');
 
             $table->string('name',80);
-            $table->string('ref')->unique();
+            $table->string('ref')->unique()->nullable();
             $table->string('tva',2)->default(false);
-            $table->longText('description');
+            $table->longText('description')->nullable();
             $table->string('size')->nullable();
             $table->string('qt')->default(false);
             $table->string('amount_min')->default(false);

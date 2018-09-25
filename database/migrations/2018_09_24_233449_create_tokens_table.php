@@ -18,10 +18,10 @@ class CreateTokensTable extends Migration
             $table->string('token',100)->unique();
             $table->string('range');
 
-            $table->integer('category_id')->index()->unique()->unsigned()->nullable();
+            $table->integer('category_id')->index()->unsigned();
             $table->foreign('category_id')->references('id')->on('categories');
 
-            $table->integer('company_id')->index()->unique()->unsigned()->nullable();
+            $table->integer('company_id')->index()->unsigned();
             $table->foreign('company_id')->references('id')->on('companies');
 
             $table->timestamps();

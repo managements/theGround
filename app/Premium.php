@@ -28,6 +28,6 @@ class Premium extends Model
 
     public function status()
     {
-        return $this->hasMany(Status::class);
+        return $this->belongsTo(Status::class);
     }
 }

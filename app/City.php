@@ -22,4 +22,9 @@ class City extends Model
     {
         return $this->hasMany(Member::class);
     }
+
+    public function position()
+    {
+        return $this->hasOne(Position::class);
+    }
 }

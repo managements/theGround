@@ -29,4 +29,10 @@ class User extends Authenticatable
      * @var array
      */
     protected $guarded = ['is_admin'];
+
+    public function member()
+    {
+        return $this->hasOne(Member::class);
+    }
+
 }

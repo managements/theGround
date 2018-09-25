@@ -11,7 +11,7 @@ class Company extends Model
      */
     protected $fillable = ['brand', 'slug', 'name', 'licence', 'turnover', 'taxes', 'fax', 'speaker', 'address', 'build', 'floor', 'apt_nbr', 'zip', 'city_id', 'premium_id'];
 
-    public function getRouteKey()
+    public function getRouteKeyName()
     {
         return 'slug';
     }

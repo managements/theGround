@@ -9,7 +9,7 @@ class Email extends Model
     /**
      * @var array
      */
-    protected $fillable = ['email', 'member_id', 'company_id'];
+    protected $fillable = ['email','position_id', 'member_id', 'company_id'];
 
     public function member()
     {
@@ -19,5 +19,10 @@ class Email extends Model
     public function company()
     {
         return $this->belongsTo(Company::class);
+    }
+
+    public function position()
+    {
+        return $this->belongsTo(Position::class);
     }
 }
