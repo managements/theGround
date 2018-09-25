@@ -19,4 +19,14 @@ class Category extends Model
      * @var bool
      */
     public $timestamps = false;
+
+    public function members()
+    {
+        return $this->hasMany(Member::class);
+    }
+
+    public function tokens()
+    {
+        return $this->hasMany(Token::class);
+    }
 }

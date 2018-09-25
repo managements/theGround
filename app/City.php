@@ -12,4 +12,14 @@ class City extends Model
      * @var array
      */
     protected $fillable = ['city'];
+
+    public function company()
+    {
+        return $this->hasOne(Company::class);
+    }
+
+    public function members()
+    {
+        return $this->hasMany(Member::class);
+    }
 }

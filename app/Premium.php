@@ -14,5 +14,20 @@ class Premium extends Model
     /**
      * @var array
      */
-    protected $table = ['premiums'];
+    protected $table = 'premiums';
+
+    public function company()
+    {
+        return $this->hasOne(Company::class);
+    }
+
+    public function member()
+    {
+        return $this->hasOne(Member::class);
+    }
+
+    public function status()
+    {
+        return $this->hasMany(Status::class);
+    }
 }
