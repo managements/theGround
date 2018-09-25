@@ -20,7 +20,7 @@ class PositionsTableSeeder extends Seeder
         ]);
 
         \App\Email::create([
-            'email'     => 'accounting@ly.ly',
+            'email'     => 'position@ly.ly',
             'position_id' => 1,
         ]);
         // tel

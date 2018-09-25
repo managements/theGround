@@ -18,5 +18,7 @@ Route::middleware('auth')->group(function () {
         Route::middleware('can:myCompany,company')->resource('position', 'Position\PositionController');
         Route::middleware('can:myCompany,company')->resource('token', 'Token\TokenController');
         Route::middleware('can:myCompany,company')->resource('product', 'Store\ProductController');
+        Route::middleware('can:myCompany,company')->resource('provider', 'Deal\ProviderController');
+        Route::middleware('can:myCompany,company')->resource('client', 'Deal\ClientController');
     });
 });

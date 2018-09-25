@@ -9,7 +9,7 @@ class Tel extends Model
     /**
      * @var array
      */
-    protected $fillable = ['tel','position_id', 'member_id', 'company_id'];
+    protected $fillable = ['tel', 'deal_id', 'position_id', 'member_id', 'company_id'];
 
     public function member()
     {
@@ -24,5 +24,10 @@ class Tel extends Model
     public function position()
     {
         return $this->belongsTo(Position::class);
+    }
+
+    public function deal()
+    {
+        return $this->belongsTo(Deal::class);
     }
 }

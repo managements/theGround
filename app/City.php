@@ -27,4 +27,9 @@ class City extends Model
     {
         return $this->hasOne(Position::class);
     }
+
+    public function deals()
+    {
+        return $this->hasMany(Deal::class);
+    }
 }

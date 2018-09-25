@@ -55,4 +55,9 @@ class Company extends Model
     {
         return $this->hasMany(Token::class);
     }
+
+    public function deals()
+    {
+        return $this->hasMany(Deal::class);
+    }
 }

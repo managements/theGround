@@ -17,6 +17,9 @@ class CreateTelsTable extends Migration
             $table->increments('id');
             $table->string('tel',10)->unique();
 
+            $table->integer('deal_id')->index()->unique()->unsigned()->nullable();
+            $table->foreign('deal_id')->references('id')->on('deals');
+
             $table->integer('position_id')->index()->unique()->unsigned()->nullable();
             $table->foreign('position_id')->references('id')->on('positions');
 
